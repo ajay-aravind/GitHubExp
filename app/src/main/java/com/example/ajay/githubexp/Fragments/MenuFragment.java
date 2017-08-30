@@ -16,6 +16,7 @@ import android.widget.ListView;
 
 import com.example.ajay.githubexp.Datautils.dataUtils;
 import com.example.ajay.githubexp.R;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +25,24 @@ import java.util.List;
  * Created by ajay on 29/8/17.
  */
 
-public class MenuFragment extends Fragment {
+public class MenuFragment extends android.app.Fragment {
 
     public FragmentInteractor interactor;
+    public static int id=123;
+    public int Id;
 
+    public MenuFragment()
+    {
+        Id=id;
+        id+=100;
+    }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         interactor=(FragmentInteractor)context;
+        Logger.d("Ping...");
     }
 
     @Override
@@ -67,6 +76,8 @@ public class MenuFragment extends Fragment {
             view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    Logger.d(Id);
                     interactor.sendPosition(i);
                 }
             });
