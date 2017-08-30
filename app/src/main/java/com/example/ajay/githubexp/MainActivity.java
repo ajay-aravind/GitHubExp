@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.Frag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        setUpLogger();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -55,15 +53,4 @@ public class MainActivity extends AppCompatActivity implements MenuFragment.Frag
             getFragmentManager().beginTransaction().add(R.id.decrptLayout, rightFrag, "DescFrag").commit();
     }
 
-    public void setUpLogger() {
-
-//        FormatStrategy formatStrategy = PrettyFormatStrategy.newBuilder()
-//                .showThreadInfo(true)  // (Optional) Whether to show thread info or not. Default true
-//                .methodCount(2)         // (Optional) How many method line to show. Default 2
-//                .methodOffset(2)        // (Optional) Hides internal method calls up to offset. Default 5// (Optional) Changes the log strategy to print out. Default LogCat
-//                .tag("Advaced logger")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
-//                .build();
-        Logger.addLogAdapter(new AndroidLogAdapter());
-
-    }
 }
